@@ -12,15 +12,14 @@ public class BankAccount {
         System.out.println("Начисленно на счет: " + amount + " сом");
     }
     void withDraw(double sum) throws LimitException{
-        if (amount<sum){
-            throw new LimitException("Недостаточно денег на счете", amount);
-        }
-        amount -= sum;
+        System.out.println("Снято: " + sum + " сом со счета");
+        amount-=sum;
+        throw new LimitException("Недостаточно денег на счете", amount);
+    }
+    void withDrawBalance(){
         System.out.println("Снято: " + amount + " сом со счета");
+        amount-=amount;
     }
 
-    void withdrawAccountBalance(){
-        System.out.println("Снято: " + amount + " сом со счета");
-        amount=(amount-amount);
-    }
 }
+

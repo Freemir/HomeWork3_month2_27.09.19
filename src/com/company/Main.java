@@ -6,17 +6,17 @@ public class Main {
         BankAccount client = new BankAccount();
         client.deposit(10000.0);
         client.getAmount();
+        while (true) {
             try {
-                while (true){
-                    client.withDraw(6000.0);
-                }
+                client.withDraw(6000.0);
             } catch (LimitException e) {
                 e.getRemainingAmount();
-            }finally {
+                client.withDrawBalance();
                 client.getAmount();
-                client.withdrawAccountBalance();
-                client.getAmount();
+            }
+            finally {
                 System.exit(0);
             }
+        }
     }
 }
